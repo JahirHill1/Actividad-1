@@ -1,0 +1,56 @@
+<script>
+class Dado {
+    lanzar () {
+        return Math.floor(Math.random()*100)+1;
+    }
+}
+
+class Corredor {
+   constructor(numero){
+    this.posicion = 0;
+    this.dado = new Dado();
+    this.numero=numero;
+    }
+    estado(){
+        return this.numero+" Se encuentra en la posicion " + this.posicion+ " ";
+     }
+     liebreCorriendo(){
+       let side=this.dado.lanzar();
+       if(side>=1 && side <=20){
+         this.posicion+=0;
+       }else if(side >= 21 && side <=40){
+         this.posicion+=9;
+       }else if(side >= 41 && side <= 50){
+         this.posicion-=12;
+       }else if(side >= 51 && side <=85){
+         this.posicion+=1;
+       }else if(side >= 86 && side <=100){
+         this.posicion-=2;
+         } 
+        }
+       tortugaCorriendo(){
+       let side=this.dado.lanzar();
+             if(side >= 1 && side <=50){
+         this.posicion+=3;
+       }else if(side >=51 && side <=70) {
+         this.posicion-=6;
+       }else if(side >=71 && side <=100){
+         this.posicion+=1;
+       }
+     }
+ }
+ let liebre = new Corredor("Liebre");
+ let tortuga = new Corredor("Tortuga");
+ while(liebre.posicion<100 && tortuga.posicion<100){
+ liebre.liebreCorriendo();
+ tortuga.tortugaCorriendo();
+ console.log(liebre.estado() + tortuga.estado());
+  if(liebre.posicion >= 100){
+   console.log("El corredor Liebre ha ganado la carrera");
+  }else if(tortuga.posicion >= 100){
+    console.log("El corredor Tortuga ha ganado la carrera");
+  }else if(liebre.posicion >=100 && tortuga.posicion >= 100){
+    console.log("Ambos corredores han empatado");
+ } 
+}
+</script>
