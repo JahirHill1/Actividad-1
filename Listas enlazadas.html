@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario con listas enlazadas simples</title>
+</head>
+<body>
+    <script>
+
+        class inventario{
+            constructor(numero){
+            this.numero=numero;
+            this.sig=null;
+            this.ant=null;
+        }
+    }
+        class Lista{
+        constructor(){
+        this.primero=null;
+        this.ultimo=null;
+        }
+         
+        agregar(nuevo){
+            if (this.primero==null){
+            this.primero=nuevo;
+            this.ultimo=nuevo;
+        }else{
+            this.ultimo.sig=nuevo
+            nuevo.ant=this.ultimo;
+            this.ultimo=nuevo
+        }
+        if (primero == null)
+            {
+                primero = nuevoP;
+                ultimo = nuevoP;
+            }
+            else
+            {
+                ultimo.siguiente = nuevoP;
+                ultimo = nuevoP;
+            }
+        }
+    }   if (primero == null){
+            {
+                primero = prodEnInicio;
+                ultimo = prodEnInicio;
+            }
+            else
+            {
+                prodEnInicio.siguiente = primero;
+                primero = prodEnInicio;
+            }
+            if (posicion == 1)
+                agregarEnInicio(prodAInsertar);
+            else
+            {
+                int vcont = 2;
+                temp = primero;
+
+                while (vcont < posicion)
+                {
+                    temp = temp.siguiente;
+                    vcont++;
+                }
+
+                prodAInsertar.siguiente = temp.siguiente;
+                temp.siguiente = prodAInsertar;
+            }
+        }
+
+        public Producto buscar(int codigoP)
+        {
+            temp = primero;
+            encontrado = null;
+
+            while (encontrado == null && temp != null)
+                if (temp.codigo == codigoP)
+                    encontrado = temp;
+                else
+                {
+                    anterior = temp;
+                    temp = temp.siguiente;
+                }
+
+            return encontrado;
+        }
+
+        public bool eliminar(int codigoP)
+        {
+            if (buscar(codigoP) != null)
+            {
+                if (encontrado == primero)
+                    primero = primero.siguiente;
+                else
+                    anterior.siguiente = encontrado.siguiente;
+
+                return true;
+            }
+            else
+                return false;
+        }   
+        
+
+            while (temp != null)
+            {
+                vProducto += temp.ToString() + Environment.NewLine;
+                temp = temp.siguiente;
+            }
+
+            return vProducto;   
+    </script>
+</body>
+</html>
